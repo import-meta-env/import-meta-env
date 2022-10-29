@@ -18,4 +18,5 @@ packages/examples/nuxt-bridge-example/.nuxt
 packages/examples/esbuild-starter-example/out.js*
 packages/examples/nx-react-example
 packages/examples/vite-qwik-example
+packages/examples/turbo-example
 packages/swc/target
