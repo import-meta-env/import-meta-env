@@ -10,6 +10,16 @@ type Item = {
 
 export const demos: Item[] = [
   {
+    name: 'Environment Variables',
+    items: [
+      {
+        name: 'Basic',
+        slug: 'environment-variables',
+        description: 'Basic example for using import-meta-env',
+      },
+    ],
+  },
+  {
     name: 'Layouts',
     items: [
       {
