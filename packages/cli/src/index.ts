@@ -9,6 +9,7 @@ import { resolveOutputFileNames } from "./resolve-output-file-names";
 import { replaceAllPlaceholderWithEnv } from "./replace-all-placeholder-with-env";
 import { shouldInjectEnv } from "./should-inject-env";
 import colors from "picocolors";
+import { validateJSON } from "./validate-json";
 
 export const main = (di: {
   command: ReturnType<typeof createCommand>;
@@ -21,6 +22,12 @@ export const main = (di: {
     envExampleFilePath: opts.example,
     envFilePath: opts.env,
   });
+  if (validateJSON({ env }) === false) {
+    console.error(
+      colors.red(`[import-meta-env]: Environment variables are not valid.`)
+    );
+    if (require.main === module) process.exit(1);
+  }
 
   const path = opts.path ?? defaultOutput;
   let hasReplaced = false;
